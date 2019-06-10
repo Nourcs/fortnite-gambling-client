@@ -1,8 +1,14 @@
 import React, { Component, Fragment } from "react";
-import firebase, { googleProvider } from "../Config/firebase";
+
+import "bootstrap/dist/css/bootstrap.css";
+
 import { connect } from "react-redux";
 import { fetchUser } from "../Redux/Modules/Auth/auth";
 import { Switch, Route } from "react-router-dom";
+
+import Navbar from "./Navbar/Navbar";
+import Home from "./Home/Home";
+import Profile from "./App/Profile/Profile";
 
 class App extends Component {
   constructor(props) {
@@ -13,40 +19,35 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
-  googleSignIn = e => {
-    firebase
-      .auth()
-      .signInWithPopup(googleProvider)
-      .then(function(result) {
-        console.log(result);
-      })
-      .catch(function(error) {
-        console.error(error);
-      });
-  };
 
-  signOut = e => {
-    firebase.auth().signOut();
-  };
   render() {
     console.log(this.props);
     return (
       <Fragment>
-        <h1>Test</h1>
-        <Switch>
-          <Route
-            path="/"
-            component={() => {
-              return (
-                <Fragment>
-                  <button onClick={this.googleSignIn}>Login with Google</button>
-                  <br />
-                  <button onClick={this.signOut}>Sign Out</button>
-                </Fragment>
-              );
-            }}
-          />
-        </Switch>
+        <Navbar />
+        {this.props.currentUser === null ? (
+          <h1>Loading ...</h1>
+        ) : this.props.currentUser === false ? (
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route
+              component={() => {
+                return <h1>Not Found</h1>;
+              }}
+            />
+          </Switch>
+        ) : (
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/profile" component={Profile} />
+
+            <Route
+              component={() => {
+                return <h1>Not Found</h1>;
+              }}
+            />
+          </Switch>
+        )}
       </Fragment>
     );
   }
