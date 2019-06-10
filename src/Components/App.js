@@ -9,6 +9,7 @@ import { Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar/Navbar";
 import Home from "./Home/Home";
 import Profile from "./App/Profile/Profile";
+import Play from "./App/Play/Play";
 
 class App extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/play" component={Play} />
 
             <Route
               component={() => {

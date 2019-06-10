@@ -23,15 +23,22 @@ class Navbar extends Component {
           </Link>
           <ul className="navbar-nav ml-auto">
             {this.props.currentUser ? (
-              <li className="nav-item my-auto">
-                <Link to="/profile">
-                  <img
-                    src={this.props.currentUser.photoURL}
-                    className="mr-2"
-                    style={{ height: 30, borderRadius: "100%" }}
-                  />
-                </Link>
-              </li>
+              <Fragment>
+                <li className="nav-item my-auto">
+                  <Link to="/play" className="nav-link mr-2">
+                    Play
+                  </Link>
+                </li>
+                <li className="nav-item my-auto">
+                  <Link to="/profile">
+                    <img
+                      src={this.props.currentUser.photoURL}
+                      className="mr-2"
+                      style={{ height: 30, borderRadius: "100%" }}
+                    />
+                  </Link>
+                </li>
+              </Fragment>
             ) : (
               ""
             )}
