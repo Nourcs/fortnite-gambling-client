@@ -22,7 +22,7 @@ class Navbar extends Component {
             Fortnite
           </Link>
           <ul className="navbar-nav ml-auto">
-            {this.props.currentUser ? (
+            {currentUser ? (
               <Fragment>
                 <li className="nav-item my-auto">
                   <Link to="/play" className="nav-link mr-2">
@@ -32,9 +32,10 @@ class Navbar extends Component {
                 <li className="nav-item my-auto">
                   <Link to="/profile">
                     <img
-                      src={this.props.currentUser.photoURL}
+                      src={currentUser.photoURL}
                       className="mr-2"
                       style={{ height: 30, borderRadius: "100%" }}
+                      alt="profile"
                     />
                   </Link>
                 </li>
@@ -43,9 +44,11 @@ class Navbar extends Component {
               ""
             )}
             <li className="nav-item">
-              {this.props.currentUser === null ? (
-                <Link className="nav-link">Loading ...</Link>
-              ) : this.props.currentUser === false ? (
+              {currentUser === null ? (
+                <Link to="/" className="nav-link">
+                  Loading ...
+                </Link>
+              ) : currentUser === false ? (
                 <Login />
               ) : (
                 <Logout />

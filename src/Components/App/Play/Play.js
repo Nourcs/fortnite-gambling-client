@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 
-import VBucks from "./VBucks";
+import Packages from "./Packages";
 
 class Play extends Component {
   constructor(props) {
@@ -14,16 +14,16 @@ class Play extends Component {
         <div className="container">
           <div className="row text-center">
             <div className="col">
-              <VBucks title="1000 V-Bucks" link="1000" />
+              <Packages title="1000 V-Bucks" link="play/1000" />
             </div>
             <div className="col">
-              <VBucks title="2800 V-Bucks" link="2800" />
+              <Packages title="2800 V-Bucks" link="play/2800" />
             </div>
             <div className="col">
-              <VBucks title="7500 V-Bucks" link="7500" />
+              <Packages title="7500 V-Bucks" link="play/7500" />
             </div>
             <div className="col">
-              <VBucks title="13500 V-Bucks" link="13500" />
+              <Packages title="13500 V-Bucks" link="play/13500" />
             </div>
           </div>
         </div>

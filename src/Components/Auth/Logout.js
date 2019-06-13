@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import firebase, { googleProvider } from "../../Config/firebase";
+import firebase from "../../Config/firebase";
 
 import { Link } from "react-router-dom";
 class Logout extends Component {

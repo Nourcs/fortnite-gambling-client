@@ -10,6 +10,7 @@ import Navbar from "./Navbar/Navbar";
 import Home from "./Home/Home";
 import Profile from "./App/Profile/Profile";
 import Play from "./App/Play/Play";
+import Package from "./App/Play/Package";
 
 class App extends Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/play" component={Play} />
+            <Route exact path="/play/:id" component={Package} />
 
             <Route
               component={() => {
