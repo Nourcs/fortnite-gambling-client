@@ -8,6 +8,9 @@ import _ from "lodash";
 
 import Winner from "./Winner";
 
+import { Elements, StripeProvider } from "react-stripe-elements";
+import CheckoutForm from "./CheckoutForm";
+
 class Package extends Component {
   constructor(props) {
     super(props);
@@ -99,6 +102,17 @@ class Package extends Component {
               <button className="btn btn-dark" onClick={this.handleEntry}>
                 Enter Now
               </button>
+              {/* <StripeProvider apiKey="pk_test_TQHUv6FaS7ZMvuEosuc9xz7D">
+                <div className="example">
+                  <Elements>
+                    <CheckoutForm
+                      package={this.state.package}
+                      packageName={this.props.match.params.id}
+                      currentUser={this.props.currentUser}
+                    />
+                  </Elements>
+                </div>
+              </StripeProvider> */}
             </div>
           </div>
           <Winner winners={this.state.winners} />
